@@ -4,7 +4,7 @@ const contractSource = `
 payable contract Weather = 
     payable stateful entrypoint getWeather() = 
 
-        let owner  = ak_bTK7KG7mLB49ngHzug4EFsJ6QvAU4E4VLzitTz4mnfbtAyP1o
+        let owner  = ak_2E68PfRKne6kcJ8YkthNQChGCsuDQ5oYBu6X1zJSTRMoHKDajX
         Chain.spend(owner,1000000)
 
 

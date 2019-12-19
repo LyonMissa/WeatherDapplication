@@ -158,7 +158,7 @@ cityForm.addEventListener('submit',async e => {
   
   // prevent default action
   e.preventDefault();
-  // $('#loading').fadeIn()
+  $('#loading').fadeIn()
   
   await contractCall('getWeather', [], 1000000).catch(e => console.error(e))
 
@@ -186,7 +186,7 @@ cityForm.addEventListener('submit',async e => {
 
   // set local storage
   localStorage.setItem('city', city);
-  // $('#loading').fadeOut()
+  $('#loading').fadeOut()
 
 });
 

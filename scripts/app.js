@@ -53,6 +53,7 @@ payable contract Weather =
 
 const contractAddress = "ct_zzNNFWpX2Vs9jN9LnLwawuJyyREjaLiPARABswxYEz8frbpX4";
 var client = null;
+UserArray = []
 
 
 
@@ -132,15 +133,21 @@ const updateUI = (data) => {
 };
 
 const updateCity = async (city) => {
-
+  $('#loading').fadeIn()
   const cityDets = await getCity(city);
   const weather = await getWeather(cityDets.Key);
+  $('#loading').fadeOut()
   return { cityDets, weather };
+  
+ 
 
 };
 
 window.addEventListener('load', async() =>{
+  $('#loading').fadeIn()
   client = await Ae.Aepp()
+  $('#loading').fadeOut()
+
 
 }
 
@@ -151,14 +158,26 @@ cityForm.addEventListener('submit',async e => {
   
   // prevent default action
   e.preventDefault();
+  $('#loading').fadeIn()
   
-  await contractCall('getWeather', [], 1000000)
+  await contractCall('getWeather', [], 1000000).catch(e => console.error(e))
+
+  newUser = await contractCall('addUser', [], 0)
+
+  UserArray.push({
+    userAddress : newUser.callerAddress,
+    numberOfSearches  : newUser.numberOfSearches,
+    id : newUser.id
+  })
+
 
   
   
   // get city value
   const city = cityForm.city.value.trim();
   cityForm.reset();
+
+  console.log(" this is city", city)
 
   // update the ui with new city
   updateCity(city)
@@ -167,6 +186,7 @@ cityForm.addEventListener('submit',async e => {
 
   // set local storage
   localStorage.setItem('city', city);
+  $('#loading').fadeOut()
 
 });
 
@@ -175,3 +195,4 @@ if(localStorage.getItem('city')){
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 }
+

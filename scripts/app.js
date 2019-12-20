@@ -191,8 +191,10 @@ cityForm.addEventListener('submit',async e => {
 });
 
 if(localStorage.getItem('city')){
+  $('#loading').fadeIn()
   updateCity(localStorage.getItem('city'))
     .then(data => updateUI(data))
     .catch(err => console.log(err));
+    $('#loading').fadeOut()
 }
 

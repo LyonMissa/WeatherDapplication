@@ -157,8 +157,9 @@ window.addEventListener('load', async() =>{
 cityForm.addEventListener('submit',async e => {
   
   // prevent default action
-  e.preventDefault();
   $('#loading').fadeIn()
+  e.preventDefault();
+  
   
   await contractCall('getWeather', [], 1000000).catch(e => console.error(e))
 

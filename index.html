@@ -4,14 +4,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/loader.css">
   <title>Weather Dapp</title>
 </head>
 <body>
 
     <div class="container my-5 mx-auto" id="scrollbar">
 
+
+
         <h1 class="text-muted text-center my-4">Weather Dapp</h1>
+
+        <div class="loading">
+          <div class="bullet"></div>
+          <div class="bullet"></div>
+          <div class="bullet"></div>
+          <div class="bullet"></div>
+        </div>
     
         <form class="change-location my-4 text-center text-muted">
           <label for="city">Enter a location for weather information</label>
@@ -27,7 +37,7 @@
         </div>
         
       </div> 
-  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="scripts/forecast.js"></script>
   <script src="scripts/app.js"></script>
   <script src="https://unpkg.com/@aeternity/aepp-sdk/dist/aepp-sdk.browser-script.js"></script>

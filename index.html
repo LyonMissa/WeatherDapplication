@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/loader.css">
+  <link rel="stylesheet" href="./css/form.css">
+  <link rel="stylesheet" href="./css/card.css">
+  <link rel="stylesheet" href="./css/button.css">
+  <title>Weather Dapp</title>
+</head>
+<body>
+
+    <div class="my-5 mx-auto">
+
+
+
+        <h1 class="text-muted text-center my-4">Weather Dapp</h1>
+
+        <div class="loading">
+          <div class="bullet"></div>
+          <div class="bullet"></div>
+          <div class="bullet"></div>
+          <div class="bullet"></div>
+        </div>
+
+        <div id="signUp">
+
+        
+          
+            <!-- <div class="header">
+              <h1 class="text-muted text-center my-4">Weather Dapp</h1>
+            </div>
+            <div class="description">
+              <h3 class="text-muted text-center my-4">Weather dapp will provide you all your accurate weather forecasts</h3> -->
+              <h2 class="text-muted text-center my-4">Login</h2>
+              
+             
+               
+                  <div class="container">
+                    <input type="text" class="button container-fluid" id="emailReg" name="email"  placeholder="NAME@EXAMPLE.COM">
+                    <br>
+                    <br>
+                    <center>
+                      <button id="button" class="submitReg"></button>
+                    </center>
+                    
+                  </div>
+
+              
+       
+             
+
+            </div>
+           
+          
+         
+    
+    
+        <div id="getWeather">
+
+          <form class="change-location my-4 text-center text-muted">
+            <label for="city">Enter a location for weather information</label>
+            <input type="text" name="city" class="form-control p-4">
+          </form>
+          
+          <div class="card shadow-lg rounded d-none">
+            <img src="https://via.placeholder.com/400x300" class="time card-img-top">
+            <div class="icon bg-light mx-auto text-center">
+              <img src="" alt="">
+            </div>
+            <div class="text-muted text-uppercase text-center details"></div>
+          </div>
+        </div>
+       
+<!-- data of people that have used the dapp -->
+<br>
+<br>
+        <div id="logs"></div>
+        
+        <!-- <footer class="bg-dark">
+            <div class="row">
+              <div class="col text-light text-center">
+                <p class="lead">&copy; Lyonmissa For Ae Dev 101</p>
+                <p class="text-center">Dacade.org</p>
+              </div>
+            </div>
+          </div>
+        </footer> -->
+
+        <script id="template" type="x-tmpl-mustache">
+          <h2 class="text-muted text-center my-4">Recent Users</h2>
+          
+          {{#UserArray}}
+         
+          <div class="card">
+            <div class="card_image"><img src="https://i.redd.it/b3esnz5ra34y.jpg"></div>
+            <div class="card_content">
+              <h2 class="card_title">{{owner}}</h2>
+              <p class="card_text">{{userAddress}}</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          
+
+          {{/UserArray}}
+
+    </script>
+  
+      </div> 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://unpkg.com/@aeternity/aepp-sdk/dist/aepp-sdk.browser-script.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.js"></script>
+      <script src="scripts/button.js"></script>
+  <script src="scripts/forecast.js"></script>
+  
+ 
+  <script src="scripts/app.js"></script>
+  
+</body>
+</html>

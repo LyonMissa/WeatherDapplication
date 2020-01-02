@@ -1,0 +1,69 @@
+//  uses sophia compiler greater than or equal to 4.0.0
+@compiler >= 4.0.0
+
+payable contract Weather = 
+    // type string = s
+    // type int = i
+    // type address = a
+    
+    
+
+
+    // Emits an avent
+    datatype event =
+      FirstEvent(int, string)
+
+    record user = {
+        id : int,
+        callerAddress : address,
+        owner : string,
+        numberOfSearches : int}
+
+    record state = {
+        users : map(int,user),
+        total : int,
+        ownerAddress : address}
+
+
+
+
+
+    entrypoint init() ={users = {}, total =0, ownerAddress= Call.caller }
+
+    payable stateful entrypoint getWeather() = 
+        // Requires that the user has enough AE to call the function
+
+        require(Chain.balance(Call.caller) > 1000000, "You dont have enough ae")
+
+        // owner is the address that deployed the contract
+        let owner  = state.ownerAddress
+
+        Chain.spend(owner,1000000)
+
+    entrypoint getTotalTx() =
+        state.total
+
+    entrypoint getUser(index) =
+        state.users[index] 
+
+    entrypoint getOwnerAddress() =
+        state.ownerAddress
+
+
+    
+
+    stateful entrypoint addUser(mail : string) =
+    
+
+        let newUser = {
+            callerAddress = Call.caller,
+            id = getTotalTx()+1, 
+            owner = mail,
+
+            numberOfSearches = 0}
+
+
+        let index = getTotalTx() + 1
+        put(state{users[index] = newUser, total = index})
+
+        Chain.event(FirstEvent(index, mail))

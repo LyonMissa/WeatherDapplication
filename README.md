@@ -4,4 +4,4 @@ Hi i developed a Weather application implementing the AccuWeather Api to get rea
 
 #UPDATE
 
-Added a function to keep record of all users who utilized the aepp to get weather updates to give it tranparency and interactivity.
+updated the contract and added a function to keep record of all users who utilized the aepp to get weather updates to give it tranparency and interactivity.
